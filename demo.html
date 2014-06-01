@@ -19,10 +19,22 @@
             position: absolute;
         }
     </style>
-    <script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.3/seed.js" data-config='{combine:true}'></script>
+    <script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.3/seed.js"></script>
     <script type="text/javascript">
-        var localPath = location.href.substring(0,location.href.lastIndexOf('/'));
-        KISSY.use(localPath+'/kissy.onepage-scroll', function (S, OnepageScroll) {
+        KISSY.config({
+            combine:false,
+            packages:{
+                onepageScroll:{
+                    base:"../"
+                }
+            },
+            modules:{
+                "onepageScroll/kissy.onepage-scroll":{
+                    require:["node"]
+                }
+            }
+        });
+        KISSY.use('onepageScroll/kissy.onepage-scroll', function (S, OnepageScroll) {
             var ops = new OnepageScroll('.main', {});
             ops.init();
         });

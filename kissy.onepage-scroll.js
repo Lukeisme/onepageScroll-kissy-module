@@ -1,6 +1,8 @@
 KISSY.add(function(S, Node){
 	var defaults = {
-		onepageSection : 'section'
+		onepageSection : 'section',//section's tag name
+		pageNav : false,//use page  navigation or not
+		minTime:500 //min time between two scroll
 	};
 
 	function OnepageScroll(container, option){
@@ -15,13 +17,14 @@ KISSY.add(function(S, Node){
 		S.one(this.container).addClass("onepageWrapper");
 		S.all(this.container+" "+this.setting.onepageSection).addClass("singleSection");
 
-		var self = this;
+		var down = S.throttle(OnepageScroll.prototype.moveDown, this.setting.minTime, this);
+			up = S.throttle(OnepageScroll.prototype.moveUp, this.setting.minTime, this);
 		S.one(document).on("mousewheel", function(event){
 			event.preventDefault();
 			if (event.deltaY < 0) {
-				self.moveDown();
+				down();
 			}else if (event.deltaY > 0) {
-				self.moveUp();
+				up();
 			};
 		});
 	};

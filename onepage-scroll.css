@@ -9,7 +9,10 @@ body {
     position: relative;
     height: 100%;
     width: 100%;
-    transition: all 1s ease;
+    transition: transform 1s ease;
+    -o-transition: -o-transform 1s ease;
+    -moz-transition: -moz-transform 1s ease;
+    -webkit-transition: -webkit-transform 1s ease;
 }
 .onepageWrapper .singleSection {
     position: relative;
