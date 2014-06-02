@@ -19,3 +19,40 @@ body {
     height: 100%;
     width: 100%;
 }
+.page-nav{
+    position: absolute;
+    padding: 0;
+    top: 40%;
+    right: 20px;
+    list-style: none;
+    z-index: 1;
+}
+.page-nav .nav-item{
+    width: 14px;
+    height: 13px;
+    margin: 7px;
+}
+.page-nav .nav-item a{
+    position: absolute;
+    display: block;
+    cursor: pointer;
+}
+.page-nav .nav-item a .dot{
+    position: absolute;
+    display: block;
+    width: 4px;
+    height: 4px;
+    top: 5px;
+    left: 5px;
+    background: #777;
+    border-radius: 50%;
+}
+.page-nav .nav-item a .active.dot{
+    width: 8px;
+    height: 8px;
+    top: 2px;
+    left: 2px;
+    background: transparent;
+    color: #777;
+    border: 1px solid;
+}

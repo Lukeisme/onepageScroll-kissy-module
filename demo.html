@@ -13,7 +13,7 @@
             background-color: lightgreen;
         }
         .page3 {
-            background-color: gray;
+            background-color: #EDEDED;
         }
         .info{
             position: absolute;
@@ -34,14 +34,19 @@
                 }
             }
         });
-        KISSY.use('onepageScroll/kissy.onepage-scroll', function (S, OnepageScroll) {
-            var ops = new OnepageScroll('.main', {});
-            ops.init();
-        });
+        
+        KISSY.ready(function(S){
+            S.use('onepageScroll/kissy.onepage-scroll', function (S, OnepageScroll) {
+                            var ops = new OnepageScroll('.main', {});
+                            ops.init();
+                });
+            }
+        );
     </script>
 </head>
 
 <body>
+
     <div class="main">
         <section class="page1">
             <div class="info"><h1>Page one</h1></div>
