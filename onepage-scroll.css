@@ -31,11 +31,11 @@ body {
     width: 14px;
     height: 13px;
     margin: 7px;
+    cursor: pointer;
 }
 .page-nav .nav-item a{
     position: absolute;
     display: block;
-    cursor: pointer;
 }
 .page-nav .nav-item a .dot{
     position: absolute;

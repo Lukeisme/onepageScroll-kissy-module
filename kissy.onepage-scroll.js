@@ -6,16 +6,16 @@ KISSY.add(function(S, Node){
 	};
 
 	function OnepageScroll(container, option){
-		this.container = container;
+		this.container = S.one(container);
 		this.setting = S.merge(defaults, option);
 		// this.posTop = 230;//page-nav margin top
 		this.curIndex = 0;
-		this.len = S.all(this.container+" "+this.setting.onepageSection).length;
+		this.len = this.container.all(this.setting.onepageSection).length;
 	}
 
 	OnepageScroll.prototype.init = function() {
-		S.one(this.container).addClass("onepageWrapper");
-		S.all(this.container+" "+this.setting.onepageSection).addClass("singleSection");
+		this.container.addClass("onepageWrapper");
+		this.container.all(this.setting.onepageSection).addClass("singleSection");
 
 		if (this.setting.pageNav) this.initPageNav();
 
@@ -34,18 +34,26 @@ KISSY.add(function(S, Node){
 	OnepageScroll.prototype.initPageNav = function() {
 		var listStr = "<ul class = 'page-nav'>";
 		for (var i = 0 , len = this.len ; i < len; i++) {
-			listStr += "<li class = 'nav-item'><a><span class = 'dot'></span></a></li>"
+			listStr += "<li class = 'nav-item' data-index = '"+i+"'><a><span class = 'dot' data-index = '"+i+"'></span></a></li>"
 		};
 		listStr += "</ul>";
 		console.log(listStr);
 		var nav = S.Node(listStr);
 		// nav.css('margin-top', this.posTop);
 		S.one("body").prepend(nav);
+		var self = this;
+		nav.on('click', function(event){
+			var tarIndex = S.Node(event.target).attr("data-index");
+			if (tarIndex === undefined || tarIndex == self.curIndex) return;
+			S.Node(S.all(".dot")[self.curIndex]).removeClass("active");
+			self.curIndex = tarIndex;
+			self.container.css("transform", 'translate3d(0,'+ self.curIndex*(-100) +'%,0)');
+			S.Node(S.all(".dot")[self.curIndex]).addClass("active");
+		});
 		S.Node(S.all(".dot")[this.curIndex]).addClass("active");
 	};
 
 	OnepageScroll.prototype.moveDown = function(){
-		var el = S.one(this.container);
 		// S.Anim(el, {
 		// 	'transform' : 'translate3d(0,-100%,0)'
 		// },
@@ -54,7 +62,7 @@ KISSY.add(function(S, Node){
 		if (this.curIndex + 1 < this.len) {
 			S.Node(S.all(".dot")[this.curIndex]).removeClass("active");
 			this.curIndex += 1;
-			el.css("transform", 'translate3d(0,'+ this.curIndex*(-100) +'%,0)');
+			this.container.css("transform", 'translate3d(0,'+ this.curIndex*(-100) +'%,0)');
 			S.Node(S.all(".dot")[this.curIndex]).addClass("active");
 		}else{
 			return;
@@ -62,12 +70,11 @@ KISSY.add(function(S, Node){
 	};
 
 	OnepageScroll.prototype.moveUp = function(){
-		var el = S.one(this.container);
 		
 		if (this.curIndex - 1 >= 0) {
 			S.Node(S.all(".dot")[this.curIndex]).removeClass("active");
 			this.curIndex -= 1;
-			el.css("transform", 'translate3d(0,'+ this.curIndex*(-100) +'%,0)');
+			this.container.css("transform", 'translate3d(0,'+ this.curIndex*(-100) +'%,0)');
 			S.Node(S.all(".dot")[this.curIndex]).addClass("active");
 		}else{
 			return;
