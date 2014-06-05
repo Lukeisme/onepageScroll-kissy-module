@@ -21,7 +21,7 @@ KISSY.add(function(S, Node){
 
 		var down = S.throttle(OnepageScroll.prototype.moveDown, this.setting.minTime, this);
 			up = S.throttle(OnepageScroll.prototype.moveUp, this.setting.minTime, this);
-		S.one(document).on("mousewheel swip", function(event){
+		S.one(document).on("mousewheel swipe", function(event){
 			event.halt();
 			if (event.deltaY < 0 || event.direction == 'up') {
 				down();
