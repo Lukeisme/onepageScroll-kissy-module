@@ -37,7 +37,6 @@ KISSY.add(function(S, Node){
 			listStr += "<li class = 'nav-item' data-index = '"+i+"'><a><span class = 'dot' data-index = '"+i+"'></span></a></li>"
 		};
 		listStr += "</ul>";
-		console.log(listStr);
 		var nav = S.Node(listStr);
 		// nav.css('margin-top', this.posTop);
 		S.one("body").prepend(nav);
@@ -46,7 +45,7 @@ KISSY.add(function(S, Node){
 			var tarIndex = S.Node(event.target).attr("data-index");
 			if (tarIndex === undefined || tarIndex == self.curIndex) return;
 			S.Node(S.all(".dot")[self.curIndex]).removeClass("active");
-			self.curIndex = tarIndex;
+			self.curIndex = parseInt(tarIndex);
 			self.container.css("transform", 'translate3d(0,'+ self.curIndex*(-100) +'%,0)');
 			S.Node(S.all(".dot")[self.curIndex]).addClass("active");
 		});
