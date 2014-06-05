@@ -6,14 +6,42 @@
     <title>KISSY One Page Scroll Module</title>
     <link rel="stylesheet" type="text/css" href="onepage-scroll.css">
     <style type="text/css">
+        body{
+            font-family: cursive;
+        }
         .page1 {
-            background-color: skyblue;
+            background: url(img/1.jpg) skyblue;
+            background-size: cover;
+        }
+        .page1 .info{
+            top: 40%;
+            left: 40%;
         }
         .page2 {
-            background-color: lightgreen;
+            background: url(img/2.jpg) skyblue;
+            background-size: cover;
+        }
+         .page2 .info{
+            top: 40%;
+            left: 40%;
+            transform: rotate(-22deg);
+            -o-transform: rotate(-22deg);
+            -ms-transform: rotate(-22deg);
+            -moz-transform: rotate(-22deg);
+            -webkit-transform:rotate(-22deg);
         }
         .page3 {
-            background-color: #EDEDED;
+            background: url(img/3.jpg) skyblue;
+            background-size: cover;
+        }
+        .page3 .info{
+            top: 40%;
+            left: 40%;
+            transform: rotate(-18deg);
+            -o-transform: rotate(-18deg);
+            -ms-transform: rotate(-18deg);
+            -moz-transform: rotate(-18deg);
+            -webkit-transform:rotate(-18deg);
         }
         .info{
             position: absolute;
@@ -26,6 +54,7 @@
             packages:{
                 onepageScroll:{
                     base:"http://lukeisme.github.io/onepageScroll-kissy-module/",
+                    // base:"../",
                     ignorePackageNameInUri:true
                 }
             },

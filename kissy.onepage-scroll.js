@@ -23,9 +23,9 @@ KISSY.add(function(S, Node){
 			up = S.throttle(OnepageScroll.prototype.moveUp, this.setting.minTime, this);
 		S.one(document).on("mousewheel swip", function(event){
 			event.halt();
-			if (event.deltaY < 0) {
+			if (event.deltaY < 0 || event.direction == 'up') {
 				down();
-			}else if (event.deltaY > 0) {
+			}else if (event.deltaY > 0 || event.direction == 'down') {
 				up();
 			};
 		});
@@ -46,9 +46,11 @@ KISSY.add(function(S, Node){
 			var tarIndex = S.Node(event.target).attr("data-index");
 			if (tarIndex === undefined || tarIndex == self.curIndex) return;
 			S.Node(S.all(".dot")[self.curIndex]).removeClass("active");
-			self.curIndex = tarIndex;
+			self.curIndex = parseInt(tarIndex);
 			self.container.css("transform", 'translate3d(0,'+ self.curIndex*(-100) +'%,0)');
 			S.Node(S.all(".dot")[self.curIndex]).addClass("active");
+			console.log(self.curIndex);
+
 		});
 		S.Node(S.all(".dot")[this.curIndex]).addClass("active");
 	};
@@ -64,6 +66,7 @@ KISSY.add(function(S, Node){
 			this.curIndex += 1;
 			this.container.css("transform", 'translate3d(0,'+ this.curIndex*(-100) +'%,0)');
 			S.Node(S.all(".dot")[this.curIndex]).addClass("active");
+			console.log(this.curIndex);
 		}else{
 			return;
 		}
