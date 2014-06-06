@@ -3,27 +3,34 @@
 
 <head>
     <meta charset="utf-8">
-    <title>KISSY One Page Scroll Module</title>
+    <title>寄你一封迟到的情书</title>
     <link rel="stylesheet" type="text/css" href="onepage-scroll.css">
     <style type="text/css">
         body{
             font-family: cursive;
+            font-weight: bold;
+            font-size:large;
+        }
+        p{
+        	text-indent:2em;
         }
         .page1 {
             background: url(img/1.jpg) skyblue;
             background-size: cover;
         }
         .page1 .info{
-            top: 40%;
+            top: 20%;
             left: 40%;
+            width: 300px;
         }
         .page2 {
             background: url(img/2.jpg) skyblue;
             background-size: cover;
         }
          .page2 .info{
-            top: 40%;
-            left: 40%;
+            top: 10%;
+            left: 20%;
+            width: 600px;
             transform: rotate(-22deg);
             -o-transform: rotate(-22deg);
             -ms-transform: rotate(-22deg);
@@ -35,16 +42,27 @@
             background-size: cover;
         }
         .page3 .info{
-            top: 40%;
-            left: 40%;
-            transform: rotate(-18deg);
-            -o-transform: rotate(-18deg);
-            -ms-transform: rotate(-18deg);
-            -moz-transform: rotate(-18deg);
-            -webkit-transform:rotate(-18deg);
+            top: 20%;
+            left: 30%;
+            width: 500px;
+            transform: rotate(-16deg);
+            -o-transform: rotate(-16deg);
+            -ms-transform: rotate(-16deg);
+            -moz-transform: rotate(-16deg);
+            -webkit-transform:rotate(-16deg);
+        }
+        .page3 p{
+        	width: 300px;
         }
         .info{
             position: absolute;
+        }
+        .pic{
+        	display:block;
+        	float: right;
+        	border:3px solid;
+        	border-radius: 10px;
+        	width:200px;
         }
     </style>
     <script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.3/seed.js"></script>
@@ -79,13 +97,38 @@
 
     <div class="main">
         <section class="page1">
-            <div class="info"><h1>Page one</h1></div>
+            <div class="info">
+            	<h1>寄你一封迟到的情书</h1>
+            	<h2>晗晗：</h2>
+            	<p>
+				很开心，跟你在一起一年了。仔细想想这一年来真的发生了很多的事情，我们也经历了一些波折，但是庆幸的是，我依然和你在一起。
+				<p>
+				我一直欠你一封情书，让我现在给你补上～
+				</p>
+				</p>
+            </div>
         </section>
         <section class="page2">
-            <div class="info"><h1>Page two</h1></div>
+            <div class="info">
+            	<h1>你让日子变得美丽</h1>
+            	<p>
+ 				第一次这么真切地喜欢一个人，和你呆在一起的时候总是觉得很幸福，很温暖。在我眼里，你总是那么可爱，那么美。喜欢你认真漂亮的样子，喜欢你萌萌可爱的样子。你带给了我很多快乐。之前我从不喜欢去自习室，有了你以后就变得有时间就常去了，不是因为喜欢看课本，做题。而是喜欢我们一起努力，向着未来奋斗的样子。在抬起头，侧过脸的时候，你就在我身边。简单而美好的日子大概就是如此吧。平淡的时光，因为有你，就变得温润甜蜜起来。 
+ 				</p>
+
+ 				<p>
+				和你走过的这一年里，曾让你伤心难过，现在想来，还是觉得很歉疚。最喜欢你开心快乐的样子，看着高兴地笑着的你，会让我从心里开心起来，就像是冬天里温暖的阳光，夏天里和煦的清风。很讨厌让你难过的自己，就像我夺走了你的笑容，把你变得不快乐。我也知道自己很不成熟，有时候还有点情绪化，但是还是感谢你愿意原谅我，陪我走过这些一生中最美好的日子。
+				</p> 
+            </div>
         </section>
         <section class="page3">
-            <div class="info"><h1>Page three</h1></div>
+            <div class="info">
+            <img class = 'pic' src = "img/han.jpg"/>
+            <h1>从一到永远</h1>
+            	
+            	<p>
+            	一辈子可能也就像是这一年一样，觉得挺长的，但是可能就这么一眨眼就过去了。一个不小心，也许我们就发现走过了两年，三年。。。你从我的女友到老婆，再到老婆婆。愿我能给你幸福，这样，这辈子也就值了。
+            	</p>
+            </div>
         </section>
     </div>
 
