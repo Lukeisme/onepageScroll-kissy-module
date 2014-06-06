@@ -37,7 +37,6 @@ KISSY.add(function(S, Node){
 			listStr += "<li class = 'nav-item' data-index = '"+i+"'><a><span class = 'dot' data-index = '"+i+"'></span></a></li>"
 		};
 		listStr += "</ul>";
-		console.log(listStr);
 		var nav = S.Node(listStr);
 		// nav.css('margin-top', this.posTop);
 		S.one("body").prepend(nav);
@@ -49,24 +48,16 @@ KISSY.add(function(S, Node){
 			self.curIndex = parseInt(tarIndex);
 			self.container.css("transform", 'translate3d(0,'+ self.curIndex*(-100) +'%,0)');
 			S.Node(S.all(".dot")[self.curIndex]).addClass("active");
-			console.log(self.curIndex);
-
 		});
 		S.Node(S.all(".dot")[this.curIndex]).addClass("active");
 	};
 
 	OnepageScroll.prototype.moveDown = function(){
-		// S.Anim(el, {
-		// 	'transform' : 'translate3d(0,-100%,0)'
-		// },
-		// 1,
-		// 'easeBoth');
 		if (this.curIndex + 1 < this.len) {
 			S.Node(S.all(".dot")[this.curIndex]).removeClass("active");
 			this.curIndex += 1;
 			this.container.css("transform", 'translate3d(0,'+ this.curIndex*(-100) +'%,0)');
 			S.Node(S.all(".dot")[this.curIndex]).addClass("active");
-			console.log(this.curIndex);
 		}else{
 			return;
 		}
