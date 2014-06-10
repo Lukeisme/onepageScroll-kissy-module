@@ -15,7 +15,7 @@
         	text-indent:2em;
         }
         .page1 {
-            background: url(img/1.jpg) skyblue;
+            background: url(img/1.jpg) #f5f5d5;
             background-size: cover;
         }
         .page1 .info{
@@ -24,7 +24,7 @@
             width: 300px;
         }
         .page2 {
-            background: url(img/2.jpg) skyblue;
+            background: url(img/2.jpg) #f5f5d5;
             background-size: cover;
         }
          .page2 .info{
@@ -38,7 +38,7 @@
             -webkit-transform:rotate(-22deg);
         }
         .page3 {
-            background: url(img/3.jpg) skyblue;
+            background: url(img/3.jpg) #f5f5d5;
             background-size: cover;
         }
         .page3 .info{
@@ -76,12 +76,13 @@
     <script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.3/seed.js"></script>
     <script type="text/javascript">
         KISSY.config({
-            combine:false,
+            combine:true,
             packages:{
                 onepageScroll:{
                     base:"http://lukeisme.github.io/onepageScroll-kissy-module/",
                     // base:"../",
                     ignorePackageNameInUri:true
+                    combine:false
                 }
             },
             modules:{
